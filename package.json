@@ -1,0 +1,32 @@
+{
+  "name": "format",
+  "version": "0.0.1",
+  "description": "format for the browser and node.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/nathanfaucett/format.git"
+  },
+  "main": "src/index.js",
+  "keywords": [
+    "format",
+    "format.js"
+  ],
+  "author": "Nathan Faucett",
+  "license": "BSD-2-Clause",
+  "readmeFilename": "README.md",
+  "devDependencies": {
+    "grunt": "^0.4.5",
+    "grunt-contrib-jshint": "^0.10.0",
+    "grunt-jsbeautifier": "^0.2.7",
+    "mocha": "^2.1.0"
+  },
+  "dependencies": {
+    "is_string": "nathanfaucett/is_string",
+    "is_object": "nathanfaucett/is_object",
+    "is_primitive": "nathanfaucett/is_primitive",
+    "is_array_like": "nathanfaucett/is_array_like",
+    "is_function": "nathanfaucett/is_function",
+    "index_of": "nathanfaucett/index_of",
+    "fast_slice": "nathanfaucett/fast_slice"
+  }
+}
