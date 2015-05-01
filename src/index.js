@@ -15,7 +15,7 @@ module.exports = format;
 
 
 function format(str) {
-    return baseFormat(str, fastSlice(arguments, 1));
+    return format.args(str, fastSlice(arguments, 1));
 }
 
 format.args = baseFormat;
