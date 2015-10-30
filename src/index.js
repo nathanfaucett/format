@@ -15,10 +15,10 @@ module.exports = format;
 
 
 function format(str) {
-    return format.args(str, fastSlice(arguments, 1));
+    return baseFormat(str, fastSlice(arguments, 1));
 }
 
-format.args = baseFormat;
+format.array = baseFormat;
 
 function baseFormat(str, args) {
     var i = 0,
@@ -41,76 +41,78 @@ function baseFormat(str, args) {
     });
 }
 
-format.s = function(obj) {
-    return String(obj);
+format.s = function(value) {
+    return String(value);
 };
 
-format.d = function(obj) {
-    return Number(obj);
+format.d = function(value) {
+    return Number(value);
 };
 
-format.j = function(obj) {
+format.j = function(value) {
     try {
-        return JSON.stringify(obj);
+        return JSON.stringify(value);
     } catch (e) {
         return "[Circular]";
     }
 };
 
-function inspectObject(obj, inspected, depth, maxDepth) {
+function inspectObject(value, inspected, depth, maxDepth) {
     var out, i, il, keys, key;
 
-    if (indexOf(inspected, obj) !== -1) {
-        return toString.call(obj);
+    if (indexOf(inspected, value) !== -1) {
+        return toString.call(value);
     }
 
-    inspected[inspected.length] = obj;
+    inspected[inspected.length] = value;
 
-    if (isFunction(obj) || depth >= maxDepth) {
-        return toString.call(obj);
+    if (isFunction(value) || depth >= maxDepth) {
+        return toString.call(value);
     }
 
-    if (isArrayLike(obj) && obj !== global) {
+    if (isArrayLike(value) && value !== global) {
         depth++;
         out = [];
 
         i = -1;
-        il = obj.length - 1;
+        il = value.length - 1;
         while (i++ < il) {
-            out[i] = inspect(obj[i], inspected, depth, maxDepth);
+            out[i] = inspect(value[i], inspected, depth, maxDepth);
         }
 
         return out;
-    } else if (isObject(obj)) {
+    } else if (isObject(value)) {
         depth++;
         out = {};
-        keys = utils.keys(obj);
+        keys = utils.keys(value);
 
         i = -1;
         il = keys.length - 1;
         while (i++ < il) {
             key = keys[i];
-            out[key] = inspect(obj[key], inspected, depth, maxDepth);
+            out[key] = inspect(value[key], inspected, depth, maxDepth);
         }
 
         return out;
     }
 
-    return isFunction(obj.toString) ? obj.toString() : obj + "";
+    return isFunction(value.toString) ? value.toString() : value + "";
 }
 
-function inspectPrimitive(obj) {
-    return isNumber(obj) ? Number(obj) : String(obj);
+function inspectPrimitive(value) {
+    return isNumber(value) ? Number(value) : String(value);
 }
 
-function inspect(obj, inspected, depth, maxDepth) {
-    return isPrimitive(obj) ? inspectPrimitive(obj) : inspectObject(obj, inspected, depth, maxDepth);
+function inspect(value, inspected, depth, maxDepth) {
+    return isPrimitive(value) ? inspectPrimitive(value) : inspectObject(value, inspected, depth, maxDepth);
 }
 
-format.o = function(obj) {
+format.o = function(value) {
     try {
-        return JSON.stringify(inspect(obj, [], 0, 5), null, 2);
+        return JSON.stringify(inspect(value, [], 0, 5), null, 2);
     } catch (e) {
         return "[Circular]";
     }
 };
+
+format.inspect = format.o;
