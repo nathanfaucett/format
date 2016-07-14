@@ -1,4 +1,11 @@
 format
 =======
 
-format for the browser and node.js
+format strings with arguments
+
+```javascript
+var format = require("@nathanfaucett/format");
+
+
+format("Hello, %s!", "world"); // "Hello, world!"
+```

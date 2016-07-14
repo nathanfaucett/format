@@ -1,7 +1,7 @@
 {
-  "name": "format",
+  "name": "@nathanfaucett/format",
   "version": "0.0.1",
-  "description": "format for the browser and node.js",
+  "description": "format strings with arguments",
   "repository": {
     "type": "git",
     "url": "https://github.com/nathanfaucett/format.git"
@@ -11,7 +11,7 @@
     "test": "npm run test-node",
     "test-node": "node ./test | ./node_modules/.bin/tap-spec",
     "test-node-raw": "node ./test",
-    "test-browser-local": "zuul --local 8080 --ui tape -- ./test"
+    "test-browser-local": "zuul --local 9999 --ui tape -- ./test"
   },
   "keywords": [
     "format",
@@ -21,20 +21,20 @@
   "license": "MIT",
   "readmeFilename": "README.md",
   "devDependencies": {
-    "grunt": "^0.4.5",
-    "grunt-contrib-jshint": "^0.11.3",
-    "grunt-jsbeautifier": "^0.2.10",
+    "grunt": "^1.0.1",
+    "grunt-contrib-jshint": "^1.0.0",
+    "grunt-jsbeautifier": "^0.2.13",
     "tap-spec": "^4.1.0",
     "tape": "^4.2.0",
     "zuul": "^3.6.0"
   },
   "dependencies": {
-    "is_string": "git://github.com/nathanfaucett/is_string.git",
-    "is_object": "git://github.com/nathanfaucett/is_object.git",
-    "is_primitive": "git://github.com/nathanfaucett/is_primitive.git",
-    "is_array_like": "git://github.com/nathanfaucett/is_array_like.git",
-    "is_function": "git://github.com/nathanfaucett/is_function.git",
-    "index_of": "git://github.com/nathanfaucett/index_of.git",
-    "fast_slice": "git://github.com/nathanfaucett/fast_slice.git"
+    "@nathanfaucett/is_string": "^0.0.1",
+    "@nathanfaucett/is_object": "^0.0.1",
+    "@nathanfaucett/is_primitive": "^0.0.1",
+    "@nathanfaucett/is_array_like": "^0.0.2",
+    "@nathanfaucett/is_function": "^0.0.1",
+    "@nathanfaucett/index_of": "^0.0.1",
+    "@nathanfaucett/fast_slice": "^0.0.1"
   }
 }

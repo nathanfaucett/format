@@ -1,10 +1,10 @@
-var isString = require("is_string"),
-    isObject = require("is_object"),
-    isPrimitive = require("is_primitive"),
-    isArrayLike = require("is_array_like"),
-    isFunction = require("is_function"),
-    indexOf = require("index_of"),
-    fastSlice = require("fast_slice");
+var isString = require("@nathanfaucett/is_string"),
+    isObject = require("@nathanfaucett/is_object"),
+    isPrimitive = require("@nathanfaucett/is_primitive"),
+    isArrayLike = require("@nathanfaucett/is_array_like"),
+    isFunction = require("@nathanfaucett/is_function"),
+    indexOf = require("@nathanfaucett/index_of"),
+    fastSlice = require("@nathanfaucett/fast_slice");
 
 
 var reFormat = /%([a-z%])/g,
