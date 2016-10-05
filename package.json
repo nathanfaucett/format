@@ -1,6 +1,6 @@
 {
   "name": "@nathanfaucett/format",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "format strings with arguments",
   "repository": {
     "type": "git",
@@ -31,7 +31,7 @@
   "dependencies": {
     "@nathanfaucett/is_string": "^0.0.1",
     "@nathanfaucett/is_object": "^0.0.1",
-    "@nathanfaucett/is_primitive": "^0.0.1",
+    "@nathanfaucett/is_primitive": "^0.0.2",
     "@nathanfaucett/is_array_like": "^0.0.2",
     "@nathanfaucett/is_function": "^0.0.1",
     "@nathanfaucett/index_of": "^0.0.1",
